@@ -1,0 +1,79 @@
+[
+  {
+    "title": "Meeting with team",
+    "date": "2025-06-24",
+    "time": "10:00",
+    "duration": "1h",
+    "category": "Meeting"
+  },
+  {
+    "title": "Client Call",
+    "date": "2025-06-24",
+    "time": "11:00",
+    "duration": "30m",
+    "category": "Meeting"
+  },
+  {
+    "title": "Workshop",
+    "date": "2025-06-25",
+    "time": "15:00",
+    "duration": "2h",
+    "category": "Task"
+  },
+  {
+    "title": "Project Deadline",
+    "date": "2025-06-26",
+    "time": "17:00",
+    "duration": "1d",
+    "category": "Deadline"
+  },
+  {
+    "title": "Team Lunch",
+    "date": "2025-06-23",
+    "time": "12:00",
+    "duration": "1h",
+    "category": "Meeting"
+  },
+  {
+    "title": "Meeting with team",
+    "date": "2025-06-24",
+    "time": "10:00",
+    "duration": "1h",
+    "category": "Meeting"
+  },
+  {
+    "title": "Client Call",
+    "date": "2025-06-24",
+    "time": "11:00",
+    "duration": "30m",
+    "category": "Meeting"
+  },
+  {
+    "title": "Workshop",
+    "date": "2025-06-25",
+    "time": "15:00",
+    "duration": "2h",
+    "category": "Task"
+  },
+  {
+    "title": "Project Deadline",
+    "date": "2025-06-26",
+    "time": "17:00",
+    "duration": "1d",
+    "category": "Deadline"
+  },
+  {
+    "title": "Team Lunch",
+    "date": "2025-06-23",
+    "time": "12:00",
+    "duration": "1h",
+    "category": "Meeting"
+  },
+  {
+    "title": "Team Lunch",
+    "date": "2025-06-28",
+    "time": "12:00",
+    "duration": "1h",
+    "category": "Meeting"
+  }
+]

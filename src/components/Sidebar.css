@@ -1,0 +1,121 @@
+/* Sidebar Styles */
+.sidebar {
+  width: 100px;
+  height: 100vh;
+  background-color: #1a1a2e;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 20px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.sidebar li:hover {
+  color: #00adb5;
+}
+
+/* Legend Styles */
+.legend {
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+}
+
+.legend h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.legend-box {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 8px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.legend-box.meeting {
+  background-color: #007bff;
+}
+.legend-box.task {
+  background-color: #28a745;
+}
+.legend-box.deadline {
+  background-color: #dc3545;
+}
+.legend-box.overlap-mid {
+  background-color: #fd7e14;
+}
+.legend-box.overlap-high {
+  background-color: #6610f2;
+}
+
+/* ========================= */
+/* 🔽 Responsive Enhancements */
+/* ========================= */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 15px 10px;
+  }
+
+  .sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar li {
+    margin: 12px 0;
+  }
+
+  .legend {
+    border-top: none;
+    padding-top: 10px;
+    margin-top: 20px;
+  }
+
+  .legend h4 {
+    font-size: 14px;
+  }
+
+  .legend-row {
+    font-size: 13px;
+  }
+
+  .legend-box {
+    width: 14px;
+    height: 14px;
+  }
+}
