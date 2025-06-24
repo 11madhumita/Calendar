@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-Live  [Create React App](https://react1calendar.netlify.app/).
+  [Live](https://react1calendar.netlify.app/).
 
 ## Available Scripts
 
