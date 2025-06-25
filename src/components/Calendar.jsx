@@ -8,7 +8,14 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 function Calendar() {
   const today = new Date();
   const [currentDate, setCurrentDate] = useState(new Date());
+
+  // ✅ Dev-friendly event setup
   const [events, setEvents] = useState(() => {
+    if (process.env.NODE_ENV === 'development') {
+      localStorage.removeItem('calendarEvents');
+      return eventsData;
+    }
+
     const saved = localStorage.getItem('calendarEvents');
     return saved ? JSON.parse(saved) : eventsData;
   });
@@ -26,8 +33,11 @@ function Calendar() {
   const [showUpcomingModal, setShowUpcomingModal] = useState(false);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
 
+  // ✅ Save to localStorage when events change (production only)
   useEffect(() => {
-    localStorage.setItem('calendarEvents', JSON.stringify(events));
+    if (process.env.NODE_ENV !== 'development') {
+      localStorage.setItem('calendarEvents', JSON.stringify(events));
+    }
   }, [events]);
 
   const year = currentDate.getFullYear();
@@ -37,7 +47,6 @@ function Calendar() {
 
   const prevMonth = () => setCurrentDate(new Date(year, month - 1));
   const nextMonth = () => setCurrentDate(new Date(year, month + 1));
-
   const getEventsForDate = (dateStr) => events.filter(e => e.date === dateStr);
 
   const handleCellClick = (dateStr) => {
@@ -60,7 +69,6 @@ function Calendar() {
 
   const handleAddEvent = () => {
     if (!newTitle || !newTime) return alert("Please fill in title and time");
-
     const updatedEvents = [...events];
 
     if (isEditing && editIndex !== null) {
@@ -89,7 +97,9 @@ function Calendar() {
 
   const handleDelete = (idx) => {
     const eventToDelete = selectedEvents[idx];
-    const updatedEvents = events.filter(e => !(e.date === eventToDelete.date && e.title === eventToDelete.title && e.time === eventToDelete.time));
+    const updatedEvents = events.filter(
+      e => !(e.date === eventToDelete.date && e.title === eventToDelete.title && e.time === eventToDelete.time)
+    );
     setEvents(updatedEvents);
     setSelectedEvents(updatedEvents.filter(e => e.date === selectedDate));
   };
@@ -174,9 +184,7 @@ function Calendar() {
     <div className="calendar-container">
       <div className="header">
         <button onClick={prevMonth}>←</button>
-        <h2 onClick={() => setShowPickerModal(true)} style={{ cursor: 'pointer' }}>
-          {currentDate.toLocaleString('default', { month: 'long' })} {year}
-        </h2>
+        <h2 onClick={() => setShowPickerModal(true)}>{currentDate.toLocaleString('default', { month: 'long' })} {year}</h2>
         <button onClick={nextMonth}>→</button>
         <button className="today-btn" onClick={() => setCurrentDate(new Date())}>Today</button>
         <button className="upcoming-btn" onClick={() => {
@@ -187,10 +195,7 @@ function Calendar() {
         }}>📅 Show Upcoming Events</button>
       </div>
 
-      <div className="weekdays">
-        {daysInWeek.map(day => <div key={day} className="weekday">{day}</div>)}
-      </div>
-
+      <div className="weekdays">{daysInWeek.map(day => <div key={day} className="weekday">{day}</div>)}</div>
       <div className="grid">{renderCells()}</div>
 
       {showModal && (
